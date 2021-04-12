@@ -1,0 +1,210 @@
+Videos - https://www.youtube.com/watch?v=nmDpnm8RtdI
+
+
+UC2 - 
+
+show databases;
+USE AddressBookServiceDB;
+CREATE TABLE AddressBookTable ( 
+  PersonID int NOT NULL AUTO_INCREMENT,
+  FirstName varchar(255),
+  LastName varchar(255),
+  Address varchar(255),
+  City varchar(255), 
+  State varchar(255),
+  ZipCode bigint(255),
+  PhoneNumber bigint(255),
+  Email varchar(255),
+  PRIMARY KEY (PersonID));
+  
+UC3 - 
+
+//INSERT INTO AddressBookTable 
+//Values ('Shubham', 'Phoujdar', 'Kothrud', 'Mumbai', 'Maharashtra', 411038, '8806615534', 'sm.phoujdar@gmail.com');
+//Above did not work , why ?
+  
+show databases;
+USE AddressBookServiceDB;
+INSERT INTO AddressBookTable (FirstName, LastName, Address, City, State, ZipCode, PhoneNumber, Email)
+Values ('Shubham', 'Phoujdar', 'Kothrud', 'Mumbai', 'Maharashtra', 411038, '8806615534', 'sm.phoujdar@gmail.com');
+USE AddressBookServiceDB;
+select * from AddressBookTable;
+
+
+Inserting Extra Contacts - 
+
+show databases;
+USE AddressBookServiceDB;
+INSERT INTO AddressBookTable (FirstName, LastName, Address, City, State, Email, ZipCode, PhoneNumber)
+VALUES("Manisha", "Phoujdar", "Kothrud", "Pune","Maharashtra", "ms.phoujdar@gmail.com", 411038, 8806615535);
+INSERT INTO AddressBookTable (FirstName, LastName, Address, City, State, Email, ZipCode, PhoneNumber)
+VALUES("Shivani", "Phoujdar", "Kothrud", "Pune","Maharashtra", "ms.phoujdar@gmail.com", 411038, 8806615536);
+INSERT INTO AddressBookTable (FirstName, LastName, Address, City, State, Email, ZipCode, PhoneNumber)
+VALUES("Shubham", "Phoujdar", "Kothrud", "Pune","Maharashtra", "ms.phoujdar@gmail.com", 411038, 8806615537);
+INSERT INTO AddressBookTable (FirstName, LastName, Address, City, State, Email, ZipCode, PhoneNumber)
+VALUES("Prince", "Singh", "Vadgaon", "Pune","Maharashtra", "pm.singh@gmail.com", 400001, 8888855555);
+INSERT INTO AddressBookTable (FirstName, LastName, Address, City, State, Email, ZipCode, PhoneNumber)
+VALUES("Prince", "Singh", "Andheri", "Mumbai","Maharashtra", "pm.singh@gmail.com", 400001, 8888855555);
+INSERT INTO AddressBookTable (FirstName, LastName, Address, City, State, Email, ZipCode, PhoneNumber)
+VALUES("Prince", "Singh", "Kormangala", "Bangalore","Karnataka", "pb.singh@gmail.com", 800001, 8888844444);
+INSERT INTO AddressBookTable (FirstName, LastName, Address, City, State, Email, ZipCode, PhoneNumber)
+VALUES("Satej", "Joshi", "Mayur Colony", "Pune","Maharashtra", "st.joshi@gmail.com", 440001, 8888844433);
+INSERT INTO AddressBookTable (FirstName, LastName, Address, City, State, Email, ZipCode, PhoneNumber)
+VALUES("Satej", "Joshi", "Powai", "Mumbai","Maharashtra", "st.joshi@gmail.com", 440001, 8888844433);
+INSERT INTO AddressBookTable (FirstName, LastName, Address, City, State, Email, ZipCode, PhoneNumber)
+VALUES("Satej", "Joshi", "College", "Boston","California", "st1.joshi@gmail.com", 110110, 1008844433);
+INSERT INTO AddressBookTable (FirstName, LastName, Address, City, State, Email, ZipCode, PhoneNumber)
+VALUES("Aditya", "Hardikar", "Karishma", "Pune","Maharashtra", "st.Hardikar@gmail.com", 440001, 8288844433);
+INSERT INTO AddressBookTable (FirstName, LastName, Address, City, State, Email, ZipCode, PhoneNumber)
+VALUES("Aditya", "Hardikar", "IISC", "Bangalore","Karnataka", "st.Hardikar@gmail.com", 440001, 8288844433);
+INSERT INTO AddressBookTable (FirstName, LastName, Address, City, State, Email, ZipCode, PhoneNumber)
+VALUES("Aditya", "Hardikar", "NYU", "New York","New York State", "st1.Hardikar@gmail.com", 110110, 1208844433);
+INSERT INTO AddressBookTable (FirstName, LastName, Address, City, State, Email, ZipCode, PhoneNumber)
+VALUES("Harsh", "Phoujdar", "Job", "Pune","Maharashtra", "hp.phoujdar@gmail.com", 330450, 3238844433);
+INSERT INTO AddressBookTable (FirstName, LastName, Address, City, State, Email, ZipCode, PhoneNumber)
+VALUES("Harsh", "Phoujdar", "Job", "Dublin","South Ireland", "hp.phoujdar@gmail.com", 330450, 3238844433);
+INSERT INTO AddressBookTable (FirstName, LastName, Address, City, State, Email, ZipCode, PhoneNumber)
+VALUES("Sagar", "Apshankar", "Aundh", "Pune","Maharashtra", "srpu.apshankar@gmail.com", 411038, 9658844433);
+INSERT INTO AddressBookTable (FirstName, LastName, Address, City, State, Email, ZipCode, PhoneNumber)
+VALUES("Sagar", "Apshankar", "Paris Suburb", "Paris","France", "srpa.apshankar@gmail.com", 778009, 7508844433);
+USE AddressBookServiceDB;
+select * from AddressBookTable;
+
+
+UC4 - 
+select * from AddressBookTable;
+Update AddressBookTable
+SET FirstName = 'Shubham M'
+Where FirstName = 'Shubham'
+select * from AddressBookTable;
+
+
+UC5 - 
+
+select * from AddressBookTable;
+INSERT INTO AddressBookTable (FirstName, LastName, Address, City, State, Email, ZipCode, PhoneNumber)
+VALUES("Adolf", "Hitler", "Eagle's Nest", "Austria","Nazi Germany", "adh@nparty.com", 001001, 010122);
+select * from AddressBookTable;
+
+select * from AddressBookTable;
+DELETE FROM AddressBookTable WHERE FirstName = 'Adolf';
+select * from AddressBookTable;
+
+UC6 - 
+
+select * from AddressBookTable
+WHERE City = 'Bangalore' || State = 'South Ireland';
+
+UC7 - 
+
+select COUNT(*)
+From AddressBookTable;
+
+UC8 - 
+
+select * From AddressBookTable
+Where City = 'Pune'
+ORDER BY FirstName;
+
+UC9 - 
+
+ALTER TABLE AddressBookTable
+ADD BookType varchar(255)
+DEFAULT ('General Contact');
+ALTER TABLE AddressBookTable
+ADD BookName varchar(255)
+DEFAULT ('MasterBook');
+select * from AddressBookTable;
+
+UPDATE AddressBookTable
+SET BookType = 'Family' , BookName = "Family Contacts"
+WHERE lastName = 'Phoujdar' || lastName = 'Apshankar';
+select * from AddressBookTable;
+
+
+UC 10 - 
+
+select COUNT(*)
+From AddressBookTable
+WHERE BookType = 'Family';
+
+
+UC 11 - 
+
+CREATE TABLE AddressBooks
+(
+AddressBookId int NOT NULL,
+AddressBookName varchar(255),
+AddressBookType varchar(255),
+PersonID_FK int,
+Foreign Key(PersonID_FK) references AddressBookTable(PersonID) On update cascade on delete cascade,
+Primary Key (AddressBookId, PersonID_FK)
+);
+
+describe AddressBooks;
+
+Insert into AddressBooks (AddressBookID, AddressBookName, AddressBookType, PersonID_FK)
+Select PersonID, BookName, BookType, PersonID
+From AddressBookTable;
+
+Update AddressBooks
+SET AddressBookId = 1
+Where AddressBookType = 'Family';
+
+Update AddressBooks
+SET AddressBookId = 2
+Where AddressBookType = 'Colleagues';
+
+Update AddressBooks
+SET AddressBookId = 3
+Where AddressBookType = 'Friends';
+
+INSERT INTO AddressBooks (AddressBookID, AddressBookName, AddressBookType, PersonID_FK)
+VALUES(3, 'School Contacts', 'Friends', 1);
+
+show databases;
+select AddressBooks.AddressBookName, AddressBooks.AddressBookType, AddressBookTable.FirstName, AddressBookTable.LastName, AddressBookTable.PhoneNumber 
+from AddressBooks inner join AddressBookTable
+ON AddressBooks.PersonID_FK = AddressBookTable.PersonID;
+
+
+UC12 - 
+
+UC 6 in new structure-
+
+show databases;
+select AddressBookTable.City, AddressBooks.AddressBookType, AddressBookTable.FirstName, AddressBookTable.LastName, AddressBookTable.PhoneNumber 
+from AddressBooks inner join AddressBookTable
+ON AddressBooks.PersonID_FK = AddressBookTable.PersonID
+Where AddressBookTable.City = 'Mumbai';
+
+UC 7 in new structure-
+show databases;
+select Count(*)
+from AddressBooks inner join AddressBookTable
+ON AddressBooks.PersonID_FK = AddressBookTable.PersonID
+Where AddressBookTable.City = 'Mumbai'
+ORDER BY AddressBookTable.FirstName;
+
+
+
+UC 8 in new structure-
+
+show databases;
+select AddressBookTable.City, AddressBooks.AddressBookType, AddressBookTable.FirstName, AddressBookTable.LastName, AddressBookTable.PhoneNumber 
+from AddressBooks inner join AddressBookTable
+ON AddressBooks.PersonID_FK = AddressBookTable.PersonID
+Where AddressBookTable.City = 'Mumbai'
+ORDER BY AddressBookTable.FirstName;
+
+
+UC 10 in new structure-
+
+
+select AddressBooks.AddressBookType , Count(*)
+from AddressBooks inner join AddressBookTable
+ON AddressBooks.PersonID_FK = AddressBookTable.PersonID
+GROUP BY AddressBooks.AddressBookType;
+
+
+
